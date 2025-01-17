@@ -1,0 +1,190 @@
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 58
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 40
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 38
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 38
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 38
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 38
+Internal Server Error: /converter/
+"POST /converter/ HTTP/1.1" 500 38
+ERROR 2024-12-15 14:04:00,589 views Error accessing video metadata: Exception while accessing title of https://youtube.com/watch?v=hJ1m4QgtVYs. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:07:06,394 views Attempt 1 failed: Exception while accessing title of https://youtube.com/watch?v=hJ1m4QgtVYs. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:07:07,902 views Attempt 2 failed: Exception while accessing title of https://youtube.com/watch?v=hJ1m4QgtVYs. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:07:09,561 views Attempt 3 failed: Exception while accessing title of https://youtube.com/watch?v=hJ1m4QgtVYs. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:09:29,988 views Attempt 1 failed: Exception while accessing title of https://youtube.com/watch?v=hJ1m4QgtVYs. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:09:31,274 views Attempt 2 failed: Exception while accessing title of https://youtube.com/watch?v=hJ1m4QgtVYs. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:09:32,658 views Attempt 3 failed: Exception while accessing title of https://youtube.com/watch?v=hJ1m4QgtVYs. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:10:02,999 views Attempt 1 failed: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:10:04,532 views Attempt 2 failed: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:10:06,131 views Attempt 3 failed: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:11:37,610 views Video accessibility error: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:11:46,792 views Video accessibility error: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:11:55,496 views Video accessibility error: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:13:03,377 views Attempt 1 failed: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:13:04,888 views Attempt 2 failed: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:13:06,598 views Attempt 3 failed: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:13:18,038 views Attempt 1 failed: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:13:19,774 views Attempt 2 failed: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:13:21,384 views Attempt 3 failed: Exception while accessing title of https://youtube.com/watch?v=XO8wew38VM8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:13:43,046 views Attempt 1 failed: Exception while accessing title of https://youtube.com/watch?v=ZI3xXyeCtY8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:13:44,512 views Attempt 2 failed: Exception while accessing title of https://youtube.com/watch?v=ZI3xXyeCtY8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2024-12-15 14:13:46,229 views Attempt 3 failed: Exception while accessing title of https://youtube.com/watch?v=ZI3xXyeCtY8. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2025-01-16 16:04:17,398 log Internal Server Error: /converter/
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\pytube\__main__.py", line 341, in title
+    self._title = self.vid_info['videoDetails']['title']
+                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'videoDetails'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\youtube_link_to_aduio\youtube\core\views.py", line 76, in converter
+    title = yt_title(yt_link)
+            ^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\youtube_link_to_aduio\youtube\core\views.py", line 89, in yt_title
+    title = yt.title
+            ^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\pytube\__main__.py", line 346, in title
+    raise exceptions.PytubeError(
+pytube.exceptions.PytubeError: Exception while accessing title of https://youtube.com/watch?v=c-QsfbznSXI. Please file a bug report at https://github.com/pytube/pytube
+ERROR 2025-01-16 16:04:17,411 basehttp "POST /converter/ HTTP/1.1" 500 82590
+ERROR 2025-01-16 16:07:57,642 log Internal Server Error: /converter/
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\youtube_link_to_aduio\youtube\core\views.py", line 80, in converter
+    audio_file = download_audio(yt_link)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\youtube_link_to_aduio\youtube\core\views.py", line 97, in download_audio
+    video = yt.streams.filter(only_audio=True).first()
+            ^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\pytube\__main__.py", line 296, in streams
+    return StreamQuery(self.fmt_streams)
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\pytube\__main__.py", line 176, in fmt_streams
+    stream_manifest = extract.apply_descrambler(self.streaming_data)
+                                                ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\pytube\__main__.py", line 160, in streaming_data
+    self.bypass_age_gate()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\pytube\__main__.py", line 257, in bypass_age_gate
+    innertube_response = innertube.player(self.video_id)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\pytube\innertube.py", line 448, in player
+    return self._call_api(endpoint, query, self.base_data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\pytube\innertube.py", line 390, in _call_api
+    response = request._execute_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\pytube\request.py", line 37, in _execute_request
+    return urlopen(request, timeout=timeout)  # nosec
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 521, in open
+    response = meth(req, response)
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 630, in http_response
+    response = self.parent.error(
+               ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 559, in error
+    return self._call_chain(*args)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 639, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 403: Forbidden
+ERROR 2025-01-16 16:07:57,656 basehttp "POST /converter/ HTTP/1.1" 500 137148
+ERROR 2025-01-16 16:09:57,109 log Internal Server Error: /converter/
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\OneDrive\Desktop\youtube_link_to_aduio\youtube\core\views.py", line 81, in converter
+    audio_file = audio_file.replace(settings.MEDIA_ROOT, '')
+             ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'replace'
+ERROR 2025-01-16 16:09:57,130 basehttp "POST /converter/ HTTP/1.1" 500 71079
+ERROR 2025-01-16 16:16:29,812 log Internal Server Error: /converter/
+ERROR 2025-01-16 16:16:29,812 basehttp "POST /converter/ HTTP/1.1" 500 40
+ERROR 2025-01-16 16:21:22,768 log Internal Server Error: /converter/
+ERROR 2025-01-16 16:21:22,768 basehttp "POST /converter/ HTTP/1.1" 500 40
+ERROR 2025-01-16 16:27:38,041 log Internal Server Error: /converter/
+ERROR 2025-01-16 16:27:38,041 basehttp "POST /converter/ HTTP/1.1" 500 145
+ERROR 2025-01-16 16:56:08,520 log Internal Server Error: /converter/
+ERROR 2025-01-16 16:56:08,522 basehttp "POST /converter/ HTTP/1.1" 500 145
+ERROR 2025-01-16 16:59:35,538 log Internal Server Error: /converter/
+ERROR 2025-01-16 16:59:35,538 basehttp "POST /converter/ HTTP/1.1" 500 145
+ERROR 2025-01-16 16:59:58,644 log Internal Server Error: /converter/
+ERROR 2025-01-16 16:59:58,644 basehttp "POST /converter/ HTTP/1.1" 500 145
+ERROR 2025-01-16 17:03:29,199 log Internal Server Error: /converter/
+ERROR 2025-01-16 17:03:29,199 basehttp "POST /converter/ HTTP/1.1" 500 145

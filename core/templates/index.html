@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to { 
+                transform: rotate(360deg);
+            }
+        }
+        .load {
+            width: 100px;
+            height: 100px;
+            margin: 110px auto 0;
+            border: solid 10px #8822aa;
+            border-radius: 50%;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            animation: rotate 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 font-sans antialiased">
+    <!-- Navbar -->
+    <nav class="bg-blue-600 p-4 text-white flex justify-between items-center">
+        <h1 class="text-3xl font-bold">MP3 Converter</h1>
+        <div>
+            <span class="mr-4">Welcome, <strong>{{ user.username }}</strong></span>
+            <a href="logout" class="text-white hover:underline">Logout</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto mt-10 px-4">
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md transition-transform transform hover:scale-105">
+            <!-- Introduction Section -->
+            <div class="text-center">
+                <h2 class="text-2xl font-semibold mb-4">Welcome to the MP3 Converter</h2>
+                <p class="text-gray-700">
+                    Easily convert YouTube videos to MP3 audio files. Enter the video link below to get started.
+                </p>
+            </div>
+
+            <!-- YouTube Link Section -->
+            <div class="mt-6">
+                <h3 class="text-xl mb-4 font-semibold">Enter YouTube Video Link</h3>
+                <div class="flex space-x-4">
+                    <input id="youtubeLink" type="url" placeholder="Paste YouTube link here..." 
+                           class="flex-grow p-2 border border-blue-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <button id="generateBlogButton" 
+                            class="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700 transition">
+                        Convert
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading Animation -->
+            <div id="loading-circle" class="load mt-6 hidden"></div>
+
+            <!-- Generated Blog Display Section -->
+            <section class="mt-10">
+                <h3 class="text-xl mb-4 font-semibold">Generated Content</h3>
+                <div id="blogContent" class="text-gray-700 space-y-4"></div>
+
+                <!-- Audio Player and Download Link -->
+                <div id="audioPlayerContainer" class="mt-6 hidden">
+                    <h4 class="text-lg font-semibold">Downloadable Audio</h4>
+                    <audio id="audioPlayer" controls class="mt-2 w-full"></audio>
+                    <a id="downloadLink" 
+                       class="block mt-2 text-blue-600 underline" 
+                       target="_blank">Download MP3</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center p-4 text-gray-700">
+        Powered by <a href="https://github.com/Sudip-Timilsina" class="text-blue-600 underline">@sudip</a>
+    </footer>
+
+    <script>
+        const isValidYoutubeURL = (url) => {
+            const regex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
+            return regex.test(url);
+        };
+
+        document.getElementById('generateBlogButton').addEventListener('click', async () => {
+            const youtubeLink = document.getElementById('youtubeLink').value;
+            const blogContent = document.getElementById('blogContent');
+            const audioPlayerContainer = document.getElementById('audioPlayerContainer');
+            const audioPlayer = document.getElementById('audioPlayer');
+            const downloadLink = document.getElementById('downloadLink');
+            const loadingCircle = document.getElementById('loading-circle');
+
+            if (!isValidYoutubeURL(youtubeLink)) {
+                alert("Please enter a valid YouTube link.");
+                return;
+            }
+
+            try {
+                loadingCircle.classList.remove('hidden');
+                blogContent.innerHTML = '';
+                audioPlayerContainer.classList.add('hidden');
+
+                const response = await fetch('/converter/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ link: youtubeLink }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    blogContent.innerHTML = `
+                        <h4 class="text-lg font-bold">${data.title}</h4>
+                        <img src="${data.thumbnail}" alt="${data.title} Thumbnail" class="mt-2 mb-4 w-full rounded-lg">
+                    `;
+                    audioPlayer.src = data.audio_url;
+                    downloadLink.href = data.audio_url;
+                    downloadLink.download = `${data.title}.mp3`;
+                    audioPlayerContainer.classList.remove('hidden');
+                } else {
+                    throw new Error(data.error || 'Failed to convert video.');
+                }
+            } catch (error) {
+                console.error(error);
+                blogContent.innerHTML = `<p class="text-red-500">Error: ${error.message}</p>`;
+            } finally {
+                loadingCircle.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
