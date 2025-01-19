@@ -20,7 +20,7 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 SECRET_KEY = 'django-insecure-k$w@+l^ac=oo#j@w1a*&)cw5a-4myc5@h5#65&i!abeh@^fkxu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -130,10 +130,9 @@ LOGIN_URL='login'
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [],  # No authentication needed
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAdminUser',
-    ]
+        'rest_framework.permissions.AllowAny',  # Allow access to all users
+    ],
 }
+

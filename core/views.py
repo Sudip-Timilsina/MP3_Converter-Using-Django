@@ -71,6 +71,7 @@ def user_logout(request):
     logout(request)
     return redirect('/')
 
+
 @csrf_exempt
 def converter(request):
     if request.method == 'POST':
@@ -128,17 +129,6 @@ def converter(request):
                 audio_url = fs.url(f"downloads/{new_audio_filename}")
                 print(f"Audio URL generated: {audio_url}")  # Debugging log
 
-                def save_download_history(title, audio_url, user=None):
-                         history = DownloadHistory(
-                                title=title,
-                                audio_url=audio_url,
-                                user=user,
-                             )
-                         history.save()
-
-                # Inside your converter view, after the download is complete:
-                save_download_history(info['title'], audio_url, request.user)
-
                 return JsonResponse({
                     'title': info['title'],
                     'thumbnail': info.get('thumbnail'),
@@ -152,6 +142,7 @@ def converter(request):
             return JsonResponse({'error': error_msg}, status=500)
 
     return JsonResponse({'error': 'Invalid request method'}, status=400)
+
 
 def get_video_info(link):
     """
@@ -170,16 +161,16 @@ def download_audio(link):
     os.makedirs(output_dir, exist_ok=True)
 
     ydl_opts = {
-    'format': 'bestaudio/best',
-    'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
-    'quiet': True,
-    'postprocessors': [{
-        'key': 'FFmpegExtractAudio',
-        'preferredcodec': 'mp3',
-        'preferredquality': '192',
-    }],
-    'cookies': os.path.join(settings.MEDIA_ROOT,'cookies.txt'),
-}
+        'format': 'bestaudio/best',
+        'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
+        'quiet': True,
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',
+        }],
+    }
+
     with YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(link, download=True)
         return ydl.prepare_filename(info).replace('.webm', '.mp3')
