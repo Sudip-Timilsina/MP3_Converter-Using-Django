@@ -170,16 +170,16 @@ def download_audio(link):
     os.makedirs(output_dir, exist_ok=True)
 
     ydl_opts = {
-        'format': 'bestaudio/best',
-        'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
-        'quiet': True,
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-    }
-
+    'format': 'bestaudio/best',
+    'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
+    'quiet': True,
+    'postprocessors': [{
+        'key': 'FFmpegExtractAudio',
+        'preferredcodec': 'mp3',
+        'preferredquality': '192',
+    }],
+    'cookies': os.path.join(settings.MEDIA_ROOT,'cookies.txt'),
+}
     with YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(link, download=True)
         return ydl.prepare_filename(info).replace('.webm', '.mp3')
