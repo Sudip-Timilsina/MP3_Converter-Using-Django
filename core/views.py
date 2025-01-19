@@ -18,7 +18,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from .models import DownloadHistory
 from rest_framework import status
-import browser_cookie3
+
 
 
 
@@ -74,6 +74,7 @@ def user_logout(request):
 
 
 
+
 @csrf_exempt
 def converter(request):
     if request.method == 'POST':
@@ -85,14 +86,11 @@ def converter(request):
             if not yt_link:
                 return JsonResponse({'error': 'No YouTube link provided'}, status=400)
 
-            # Extract cookies from the browser using browser-cookie3
-            cookies = browser_cookie3.chrome()  # This works for Chrome, change if you're using a different browser
-
             # Set output directory for downloaded files
             output_dir = os.path.join(settings.MEDIA_ROOT, 'downloads')
             os.makedirs(output_dir, exist_ok=True)
 
-            # Configure yt-dlp options with ffmpeg location and cookies
+            # Configure yt-dlp options with ffmpeg location
             ydl_opts = {
                 'format': 'bestaudio/best',
                 'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
@@ -103,7 +101,6 @@ def converter(request):
                     'preferredquality': '192',
                 }],
                 'ffmpeg_location': 'C:/ffmpeg/bin',  # Adjust this path as necessary
-                'cookiefile': cookies,  # Pass the cookies to yt-dlp
             }
 
             with YoutubeDL(ydl_opts) as ydl:
@@ -150,79 +147,6 @@ def converter(request):
     return JsonResponse({'error': 'Invalid request method'}, status=400)
 
 
-
-# @csrf_exempt
-# def converter(request):
-#     if request.method == 'POST':
-#         try:
-#             # Load JSON data from request body
-#             data = json.loads(request.body)
-#             yt_link = data.get('link')
-            
-#             if not yt_link:
-#                 return JsonResponse({'error': 'No YouTube link provided'}, status=400)
-
-#             # Set output directory for downloaded files
-#             output_dir = os.path.join(settings.MEDIA_ROOT, 'downloads')
-#             os.makedirs(output_dir, exist_ok=True)
-
-#             # Configure yt-dlp options with ffmpeg location
-#             ydl_opts = {
-#                 'format': 'bestaudio/best',
-#                 'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
-#                 'quiet': True,
-#                 'postprocessors': [{
-#                     'key': 'FFmpegExtractAudio',
-#                     'preferredcodec': 'mp3',
-#                     'preferredquality': '192',
-#                 }],
-#                 'ffmpeg_location': 'C:/ffmpeg/bin',  # Adjust this path as necessary
-#             }
-
-#             with YoutubeDL(ydl_opts) as ydl:
-#                 # Attempt to extract video information
-#                 info = ydl.extract_info(yt_link, download=True)
-#                 print(f"Video info extracted: {info}")  # Debugging log
-
-#                 # Generate a unique UUID as the file name
-#                 unique_id = uuid.uuid4().hex  # This generates a unique 32-character hexadecimal string
-
-#                 # Construct the audio file path based on the downloaded files
-#                 audio_file_path = None
-#                 for file in os.listdir(output_dir):
-#                     if file.endswith('.mp3') and file.startswith(info['title'][:5]):  # Match part of the title for the downloaded file
-#                         audio_file_path = os.path.join(output_dir, file)
-#                         break
-
-#                 # Check if audio file exists
-#                 if not audio_file_path:
-#                     print(f"Error: Audio file was not downloaded properly.")  # Debugging log
-#                     return JsonResponse({'error': 'Audio file was not downloaded properly.'}, status=500)
-
-#                 # Use FileSystemStorage to save the audio file with the unique UUID as the name
-#                 fs = FileSystemStorage(location=output_dir)
-#                 new_audio_filename = f"{unique_id}.mp3"
-#                 fs.save(new_audio_filename, open(audio_file_path, 'rb'))
-
-#                 # Generate URL for the audio file
-#                 audio_url = fs.url(f"downloads/{new_audio_filename}")
-#                 print(f"Audio URL generated: {audio_url}")  # Debugging log
-
-#                 return JsonResponse({
-#                     'title': info['title'],
-#                     'thumbnail': info.get('thumbnail'),
-#                     'audio_url': audio_url,
-#                 }, status=200)
-
-#         except Exception as e:
-#             # Log full traceback for debugging
-#             error_msg = traceback.format_exc()
-#             print(f"Error occurred: {error_msg}")  # Debugging log
-#             return JsonResponse({'error': error_msg}, status=500)
-
-#     return JsonResponse({'error': 'Invalid request method'}, status=400)
-
-
 def get_video_info(link):
     """
     Fetch video title and metadata using yt-dlp.
@@ -232,12 +156,61 @@ def get_video_info(link):
         info = ydl.extract_info(link, download=False)
         return {'title': info.get('title', 'Unknown Title')}
 
+# def download_audio(link):
+#     """
+#     Download the audio stream of the video using yt-dlp.
+#     """
+#     output_dir = os.path.join(settings.MEDIA_ROOT, 'downloads')
+#     os.makedirs(output_dir, exist_ok=True)
+
+#     ydl_opts = {
+#         'format': 'bestaudio/best',
+#         'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
+#         'quiet': True,
+#         'postprocessors': [{
+#             'key': 'FFmpegExtractAudio',
+#             'preferredcodec': 'mp3',
+#             'preferredquality': '192',
+#         }],
+#     }
+
+#     with YoutubeDL(ydl_opts) as ydl:
+#         info = ydl.extract_info(link, download=True)
+#         return ydl.prepare_filename(info).replace('.webm', '.mp3')
+    
+
+
+
+
+
+
+# class DownloadHistoryAPI(APIView):
+#     permission_classes = [AllowAny]  # Allow all users (authenticated or not)
+#     renderer_classes = [JSONRenderer]  # Render response as JSON
+
+#     def get(self, request):
+#         # Retrieve all download history entries
+#         history = DownloadHistory.objects.all().order_by('-download_date')  # Sort by date, most recent first
+#         data = [
+#             {
+#                 'title': entry.title,
+#                 'audio_url': entry.audio_url,
+#                 'download_date': entry.download_date,
+#                 'user': entry.user.username if entry.user else None,
+#             }
+#             for entry in history
+#         ]
+#         return Response(data, status=status.HTTP_200_OK)
+
 def download_audio(link):
     """
-    Download the audio stream of the video using yt-dlp.
+    Download the audio stream of the video using yt-dlp, using cookies.txt for authentication.
     """
     output_dir = os.path.join(settings.MEDIA_ROOT, 'downloads')
     os.makedirs(output_dir, exist_ok=True)
+
+    # Path to your cookies.txt file
+    cookies_path = r'C:\Users\user\OneDrive\Desktop\youtube_mp5\MP3_Converter-Using-Django\cookies.txt'  # Raw string to handle backslashes in the path
 
     ydl_opts = {
         'format': 'bestaudio/best',
@@ -248,32 +221,10 @@ def download_audio(link):
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
+        'cookies': cookies_path,  # Use cookies.txt to handle authentication
     }
 
     with YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(link, download=True)
         return ydl.prepare_filename(info).replace('.webm', '.mp3')
-    
 
-
-
-
-
-
-class DownloadHistoryAPI(APIView):
-    permission_classes = [AllowAny]  # Allow all users (authenticated or not)
-    renderer_classes = [JSONRenderer]  # Render response as JSON
-
-    def get(self, request):
-        # Retrieve all download history entries
-        history = DownloadHistory.objects.all().order_by('-download_date')  # Sort by date, most recent first
-        data = [
-            {
-                'title': entry.title,
-                'audio_url': entry.audio_url,
-                'download_date': entry.download_date,
-                'user': entry.user.username if entry.user else None,
-            }
-            for entry in history
-        ]
-        return Response(data, status=status.HTTP_200_OK)
