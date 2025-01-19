@@ -184,23 +184,23 @@ def get_video_info(link):
 
 
 
-# class DownloadHistoryAPI(APIView):
-#     permission_classes = [AllowAny]  # Allow all users (authenticated or not)
-#     renderer_classes = [JSONRenderer]  # Render response as JSON
+class DownloadHistoryAPI(APIView):
+    permission_classes = [AllowAny]  # Allow all users (authenticated or not)
+    renderer_classes = [JSONRenderer]  # Render response as JSON
 
-#     def get(self, request):
-#         # Retrieve all download history entries
-#         history = DownloadHistory.objects.all().order_by('-download_date')  # Sort by date, most recent first
-#         data = [
-#             {
-#                 'title': entry.title,
-#                 'audio_url': entry.audio_url,
-#                 'download_date': entry.download_date,
-#                 'user': entry.user.username if entry.user else None,
-#             }
-#             for entry in history
-#         ]
-#         return Response(data, status=status.HTTP_200_OK)
+    def get(self, request):
+        # Retrieve all download history entries
+        history = DownloadHistory.objects.all().order_by('-download_date')  # Sort by date, most recent first
+        data = [
+            {
+                'title': entry.title,
+                'audio_url': entry.audio_url,
+                'download_date': entry.download_date,
+                'user': entry.user.username if entry.user else None,
+            }
+            for entry in history
+        ]
+        return Response(data, status=status.HTTP_200_OK)
 
 def download_audio(link):
     """
