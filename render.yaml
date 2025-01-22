@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: mp3-converter
+    env: python
+    buildCommand: apt-get update && apt-get install -y ffmpeg && pip install -r requirements.txt
+    startCommand: gunicorn youtube.wsgi:application
