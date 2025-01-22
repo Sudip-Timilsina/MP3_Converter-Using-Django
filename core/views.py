@@ -202,15 +202,18 @@ class DownloadHistoryAPI(APIView):
         ]
         return Response(data, status=status.HTTP_200_OK)
 
+
 def download_audio(link):
     """
-    Download the audio stream of the video using yt-dlp, using cookies.txt for authentication.
+    Download the audio stream of the video using yt-dlp, using cookies for authentication.
     """
     output_dir = os.path.join(settings.MEDIA_ROOT, 'downloads')
     os.makedirs(output_dir, exist_ok=True)
 
-    # Path to your cookies.txt file
-    cookies_path = os.path.join(settings.BASE_DIR, 'cookies.txt')
+    # Write cookies from the environment variable to a temporary file
+    cookies_path = os.path.join(settings.BASE_DIR, 'temp_cookies.txt')
+    with open(cookies_path, 'w') as f:
+        f.write(os.environ.get('YOUTUBE_COOKIES', ''))
 
     ydl_opts = {
         'format': 'bestaudio/best',
@@ -221,9 +224,12 @@ def download_audio(link):
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
-        'cookies': cookies_path,  # Use cookies.txt to handle authentication
+        'cookies': cookies_path,  # Use temporary cookies file
     }
 
     with YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(link, download=True)
         return ydl.prepare_filename(info).replace('.webm', '.mp3')
+
+    # Clean up temporary cookies file
+    os.remove(cookies_path)
