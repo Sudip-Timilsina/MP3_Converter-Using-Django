@@ -210,8 +210,7 @@ def download_audio(link):
     os.makedirs(output_dir, exist_ok=True)
 
     # Path to your cookies.txt file
-    cookies_path = r'C:\Users\user\OneDrive\Desktop\youtube_mp5\MP3_Converter-Using-Django\cookies.txt'  # Raw string to handle backslashes in the path
-
+    
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
@@ -221,7 +220,7 @@ def download_audio(link):
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
-        'cookies': cookies_path,  # Use cookies.txt to handle authentication
+        'cookiesfrombrowser': ('chrome',),  # Automatically extracts cookies from Chrome. # Use cookies.txt to handle authentication
     }
 
     with YoutubeDL(ydl_opts) as ydl:
