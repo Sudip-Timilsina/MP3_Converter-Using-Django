@@ -136,3 +136,4 @@ REST_FRAMEWORK = {
     ],
 }
 
+COOKIES_FILE = os.path.join(BASE_DIR, 'cookies.txt')

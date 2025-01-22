@@ -210,7 +210,8 @@ def download_audio(link):
     os.makedirs(output_dir, exist_ok=True)
 
     # Path to your cookies.txt file
-    
+    cookies_path = os.path.join(settings.BASE_DIR, 'cookies.txt')
+
     ydl_opts = {
         'format': 'bestaudio/best',
         'outtmpl': os.path.join(output_dir, '%(title)s.%(ext)s'),
@@ -220,10 +221,9 @@ def download_audio(link):
             'preferredcodec': 'mp3',
             'preferredquality': '192',
         }],
-        'cookiesfrombrowser': ('chrome',),  # Automatically extracts cookies from Chrome. # Use cookies.txt to handle authentication
+        'cookies': cookies_path,  # Use cookies.txt to handle authentication
     }
 
     with YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(link, download=True)
         return ydl.prepare_filename(info).replace('.webm', '.mp3')
-
